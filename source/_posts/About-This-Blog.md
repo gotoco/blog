@@ -20,12 +20,12 @@ You will find here materials on such subjects as: Systems Architecture, Differen
 
 <!-- more -->
 ### About Blog Engine
-This blog uses the Hexo engine and tranquilpeak theme. For quite some time I wanted to start blogging, but I really wanted to use something funnier than WordPress. Recently I had to write something in NodeJS and having done that, I found that javascript can be quite interesting (yes really!). So as not to finish with NodeJS, I decided to start something that can be called a project within a project. As I wanted to blog and also do something useful with NodeJS, the idea was to use a blog engine written in NodeJS and try to play with it. (The original idea was to write my own engine but due to lack of time I decided against starting everything from scratch. Maybe one day... :)
+This blog uses the Hexo engine and Freemind theme. For quite some time I wanted to start blogging, but I really wanted to use something funnier than WordPress. Recently I had to write something in NodeJS and having done that, I found that javascript can be quite interesting (yes really!). So as not to finish with NodeJS, I decided to start something that can be called a project within a project. As I wanted to blog and also do something useful with NodeJS, the idea was to use a blog engine written in NodeJS and try to play with it.
 
-If you are interested in Hexo or Tranquilpeak, you can find more details at theys github-s:
+If you are interested in Hexo or Freemind, you can find more details at theys github-s:
 
 https://github.com/hexojs/hexo
-https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme
+https://github.com/wzpan/hexo-theme-freemind
 
 
 ### About me
@@ -53,3 +53,5 @@ Putting everything I learned together
 {% endblockquote %}
 
 So I simply treat my blog as a side project, where I am trying to put and order things together.
+
+If you are interested in collaboration or simply you would like to know the guy who is writing all of these *nonsenses* you can find my resume [here](http://res.cloudinary.com/gotocco/image/upload/v1529558247/cv_mgrochow_qo94r3.pdf).
