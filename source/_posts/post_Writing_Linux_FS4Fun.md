@@ -22,8 +22,8 @@ During the presentation, I went from a historical background to the real impleme
 
 <!-- more -->
 ### Dummy FS motivation
-Filesystems were the part of the OS that I usually felt is lacking in my knowledge. After I changed my employer I started working with storage stack. This change result with the feeling that is a right time to change my state of knowledge.
-As part of learning, I wrote a simple filesystem which I called "dummy filesystem". (The name dummyFS is because the implementation is trivial). I paid most attention to structures used to represent filesystem, disk layout and the way how OS (in this case Linux) interact with FS.
+Filesystems were the part of the OS that I usually felt is lacking in my knowledge. After I changed my employer I started working with storage stack. This change result with the feeling that is a right time to change my state of knowledge. 
+As part of learning, I wrote a simple filesystem which I called "dummy filesystem". (The name dummyFS is because the implementation is trivial). I paid most attention to structures used to represent filesystem, disk layout and the way how OS (in this case Linux) interact with FS. 
 
 ### Writing Linux FS4Fun
 
@@ -37,4 +37,7 @@ I plan to release a few more releases of dummyFS, to go through more advanced to
 - Provide real FS algorithms for managing block allocation, bitmaps and extensions
 - Implement virtual memory capabilities
 - Change FSlayout from an update in place to copy on write.
+
+### YT Recording:
+{% youtube sLR17lUjTpc %}
 
