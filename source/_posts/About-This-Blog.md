@@ -38,18 +38,16 @@ An engineer is a professional practitioner of engineering, concerned with applyi
 
 In my opinion the best part of this definition is about using knowledge to develop solutions to particular technical problems.
 
-During my career I worked on different projects for various industries (medical devices, entertainment, industry and finances, among others).
 I started my engineer career as an embedded software responsible for developing medical devices. Then I was developing complex computations for parallel machines, next was developing software for broadcasting and multimedia platforms, writing webservices and calculations for financial industry, or creating software for cloud platform.
 All of that equipped me with some practical knowledge of what different softwares and infrastructures may look like. Yet on the other hand, my work never quite gave me an opportunity to go deeper into details and principles of technologies, so I always had to study myself at home.
 
-The languages I'm familiar with: C, C++, Assembly(from AVR to x86), Python, Ruby, Java, Clojure, GO, Erlang.. (I am still trying to learn some new ones)
-Topics I'm interested in: Operating Systems, Calculations and Parallel Computing, Low Level Software, Security/Vulnerabilities, Networking (not only Internet), Cryptography, Artificial Intelligence and everything else that gets my brain to think and attracts my attention :)
+Some of my personal (aka. proffesional) interests: Systems and Application Performance, Calculations and Parallel Computing, Operating Systems, Low Level Programming, Networking, Storage, Cryptography, Artificial Intelligence (Mainly Neural Networks) and everything else that force my brain to think and attracts my attention :)
 
 At the end of this first introductory post, I want to evoke two statements from really good post that I came across a few years ago:
 
 {% blockquote John Sonmez http://simpleprogrammer.com/2013/08/19/software-development-career/ 4 Things I Wish I Would Have Known When I Started My Software Development Career %}
 Always have a side project
-Putting everything I learned together
+Put everything I learned together
 {% endblockquote %}
 
 So I simply treat my blog as a side project, where I am trying to put and order things together.
