@@ -1,6 +1,6 @@
 slogan: "Yet another System Engineering blog\n\r\0"
 
-theme: cerulean
+theme: bootstrap
 inverse: true
 
 menu:
