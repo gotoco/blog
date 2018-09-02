@@ -144,8 +144,7 @@ The first example of patching running kernel will be a Linux implementation. Ove
 
 
 ##### Ksplice
-The first solution to patching running Linux kernel was Ksplice. Created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008).
-On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
+The first solution to patching running Linux kernel was Ksplice. Created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008). On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
 Ksplice works by taking as an input modified kernel binary. Then it compares the original running kernel with the modified and extracts modified symbols (functions code).
 As a next step, Ksplice stops all CPU's except one working on patching after the process of applying changes is done, system return to normal work.
 
@@ -167,7 +166,7 @@ The biggest difference between two is that kGraft does not need to stop kernel (
 
 #### Livepatching implementation
 Current live-patching implementation is a combination of two techniques: kPatch and kGraph. The first upstream version uses the technique of stopping the machine during the patching. Later this approach was replaced with a more complicated implementation which was able to do incremental patching without the need of suspending a machine.
-Movie from stop machine approach to incremental patching required some additional changes in the kernel itself (see Live-patching challenges). 
+Move from stop machine approach to incremental patching required some additional changes in the kernel itself (see Live-patching challenges). 
 
 #### Patching the function
 As we saw earlier the most reliable way to patch function actually jumps to the new/patched function body. After execution of the new function is done, return to the caller address.
