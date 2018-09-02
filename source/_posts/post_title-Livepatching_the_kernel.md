@@ -144,10 +144,6 @@ The first example of patching running kernel will be a Linux implementation. Ove
 
 
 ##### Ksplice
-First solution for patching running linux kernel was Ksplice, created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008).
-On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
-Ksplice works by taking as an input modified kernel binary. Then it compare original running kernel with the modified and extract modified symbols (functions code).
-As a next step Ksplice stops all CPU's except one working on patching, after process of applying changes is done, system return to normal work.
 The first solution to patching running Linux kernel was Ksplice. Created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008).
 On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
 Ksplice works by taking as an input modified kernel binary. Then it compares the original running kernel with the modified and extracts modified symbols (functions code).
