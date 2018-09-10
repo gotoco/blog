@@ -1,0 +1,10 @@
+rm -rf ./source
+rm -rf ./themes/
+rm -rf _config.yml 
+git clone https://github.com/gotoco/blog
+mv ./blog/source/ ./
+mv ./blog/themes/ ./
+mv ./blog/_config.yml  ./
+mv ./blog/.gitignore  ./
+mv ./blog/deploy_hexo.sh ./
+rm -rf ./blog
