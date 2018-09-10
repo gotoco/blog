@@ -28,7 +28,7 @@ The idea of modifying the running binary code is not new. Microsoft patent from 
 Microsoft came up with this novel new technique in the distant past: 2002. The posting immediately brought out a crowd of surprised graybeards who distinctly remember using such techniques on their PDP-11 systems some decades before Microsoft "invented" hot-patching. The basic claim of the patent would thus appear to be invalidated by some decades' worth of prior art, but some of the dependent claims include features (such as capturing all other processors on the system) which were unlikely to be useful on PDP-11s.
 {% endblockquote %}
 
-#### What we really trying to do?
+#### What are we really trying to do?
 Let's imagine the situation when we need to change a constant value from `2 << 10` to `0xbadc0ffe` in the following code:
 
 ```C Function A before changes
@@ -144,7 +144,12 @@ The first example of patching running kernel will be a Linux implementation. Ove
 
 
 ##### Ksplice
-The first solution to patching running Linux kernel was Ksplice. Created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008). On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
+First solution for patching running linux kernel was Ksplice, created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008).
+On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
+Ksplice works by taking as an input modified kernel binary. Then it compare original running kernel with the modified and extract modified symbols (functions code).
+As a next step Ksplice stops all CPU's except one working on patching, after process of applying changes is done, system return to normal work.
+The first solution to patching running Linux kernel was Ksplice. Created by four MIT students based on Jeff Arnold's master's thesis (initial release 2008).
+On 21 July 2011, Oracle Corporation announced that they acquired Ksplice.
 Ksplice works by taking as an input modified kernel binary. Then it compares the original running kernel with the modified and extracts modified symbols (functions code).
 As a next step, Ksplice stops all CPU's except one working on patching after the process of applying changes is done, system return to normal work.
 
@@ -154,19 +159,20 @@ Kpatch operates on functions (patching is done by replacing functions body), thi
 When a function is entered at very beginning control is passed to `ftrace` which redirect execution to replacement function (see image below).
 kPatch ensures that is safe to patch function by applying changes while stopping all running processes, as well as ensuring that patched functions arent executed by any thread. As a side effect during the patching process, small latency is introduced to the system.
 
-{% image fancybox center clear image1.png http://res.cloudinary.com/gotocco/image/upload/c_scale,w_500/v1535320976/kpatch_Linux_kernel_live_patching__tptyrj.svg "Picture 1: Live patching process redirect calls to patched kernel functions invoke their replacement using ftrace. Source Wikipedia" %}
+{% image fancybox center clear image1.png http://res.cloudinary.com/gotocco/image/upload/v1536577516/01_xw3r3x.png "Picture 1: Live patching process redirect calls to patched kernel functions invoke their replacement using ftrace. Source Wikipedia" %}
 
 ##### kGraft
 Developed by SUSE, released in almost same time as kPatch (March 2014). kGraft aims to maximize system uptime and availability. Similar to kPatch is divided to kernel code and userspace utility.                                        
 The biggest difference between two is that kGraft does not need to stop kernel (as kPatch does). To achieve this kGraft patch functions per process, understanding the context of execution (called universe view) and patching only when called function is not in the program execution stack.
 
-{% image fancybox center clear image2.png http://res.cloudinary.com/gotocco/image/upload/v1535321826/Linux_kernel_live_patching_kGraft2_ziave3.png "Picture 2: Each process is monitored so it executes a patched function consistently within a single system call. Source Wikipedia" %}
+{% image fancybox center clear image2.png  http://res.cloudinary.com/gotocco/image/upload/v1536577517/02_1_t5oapm.png  "Picture 2: Each process is monitored so it executes a patched function consistently within a single system call. Source Wikipedia" %}
 
-{% image fancybox center clear image3.png http://res.cloudinary.com/gotocco/image/upload/v1535321869/Linux_kernel_live_patching_kGraft3_p10n1e.svg " Picture 3: After everything migrates to a new "universe", trampoline-style checks are no longer needed. Source Wikipedia" %}
+{% image fancybox center clear image3.png  http://res.cloudinary.com/gotocco/image/upload/v1536577516/02_2_hjswrj.png  " Picture 3: After everything migrates to a new "universe", trampoline-style checks are no longer needed. Source Wikipedia" %}
+
 
 #### Livepatching implementation
 Current live-patching implementation is a combination of two techniques: kPatch and kGraph. The first upstream version uses the technique of stopping the machine during the patching. Later this approach was replaced with a more complicated implementation which was able to do incremental patching without the need of suspending a machine.
-Move from stop machine approach to incremental patching required some additional changes in the kernel itself (see Live-patching challenges). 
+Movie from stop machine approach to incremental patching required some additional changes in the kernel itself (see Live-patching challenges). 
 
 #### Patching the function
 As we saw earlier the most reliable way to patch function actually jumps to the new/patched function body. After execution of the new function is done, return to the caller address.
@@ -181,7 +187,7 @@ Generate extra code to write profile information suitable for the analysis progr
 
 So we do have empty space at the begin of almost every function. Now we can insert the jump there. But here is another detail from Linux kernel: we do not need to put jump instruction by our self. Coming back to `ftrace` tracking framework, one of its features is to be able to hook function. So by using the tracing framework execution can be redirected, and before a new function is called some additional logic can be performed. This process is illustrated below:
 
-{% image fancybox center clear image4.png http://res.cloudinary.com/gotocco/image/upload/v1535320976/kpatch_Linux_kernel_live_patching__tptyrj.svg "Picture 4: The function using livepatching" %}
+{% image fancybox center clear image4.png http://res.cloudinary.com/gotocco/image/upload/v1536577516/01_xw3r3x.png  "Picture 4: The function using livepatching" %}
 
 We can also build our live patch and verify this process, using the debugger. We can see a beginning unpatched function which we will patch, the first 5 bytes are empty (used `nopl` instructions).
 Next, after applying the patch, there is a hook in place of empty instruction.
@@ -218,11 +224,11 @@ Next, after applying the patch, there is a hook in place of empty instruction.
 The most important part of changing the code in memory is to make sure that during the patching function is in the deterministic state/point. The worst thing that can happen is to change the code that is currently executed, which may cause in the best situation triggering some error as site effect but generally would cause a system crash.
 The first implementation of Linux live patch, designed patching process to be performed when the machine is halted. During the stop all processes except patching process are suspended, interrupts are disabled. The patching process checks the threads execution stack to make sure that function can be switched to the newer version, if this is not possible, the process is aborted and repeated after some period of time. This operation is illustrated below.
 
-{% image fancybox center clear image5.png http://res.cloudinary.com/gotocco/image/upload/v1535365721/Patching_with_stop_machine_jebfg6.png " Picture 5: Patching with machine stop. Source: [6] Kpatch Without Stop Machine" %}
+{% image fancybox center clear image5.png http://res.cloudinary.com/gotocco/image/upload/v1536577516/03_x75qv2.png  " Picture 5: Patching with machine stop. Source: [6] Kpatch Without Stop Machine" %}
 
 Patching the function while the machine is stopped is simple and safe. However for some type of workloads like control/network appliances hanging machine even for a couple of milliseconds is unacceptable. Another difficult situation can happen in some virtual environments where CPU isn't pinned to the guest whole process could potentially take more time as all VCPUs are scheduled on the host machine. Because of this factors new approach based on initial kGraft implementation to provide live-patching free of machine halting.
 
-{% image fancybox center clear image6.png http://res.cloudinary.com/gotocco/image/upload/v1535365721/Patching_without_stop_machine_lmjvnc.png " Picture 6: Patching without machine stop. Source: [6] Kpatch Without Stop Machine" %}
+{% image fancybox center clear image6.png http://res.cloudinary.com/gotocco/image/upload/v1536577519/04_vqjkf9.png  " Picture 6: Patching without machine stop. Source: [6] Kpatch Without Stop Machine" %}
 
 
 ### Xen Live Patching
@@ -234,7 +240,7 @@ Another interesting area where hypervisor community put more attention is correc
 #### Xen patching process
 Xen patching process is similar to techniques described in the Linux. However, hypervisor kernel has a slightly different design, which influences logic that is required during the consistency check. For consistency, the stack should be checked as we cannot patch the function which is in use by another CPU. To simplify this problem, patching is performed when the hypervisor has no stack: at the deterministic point. This implementation required some scheduling code changes. 
 
-{% image fancybox center clear image7.png http://res.cloudinary.com/gotocco/image/upload/v1535581659/Xen_Livepatching_stop_machine_ykacxh.png " Picture 7: Live Update on Xen. Source: [2] Patching with Xen Livepatch" %}
+{% image fancybox center clear image7.png http://res.cloudinary.com/gotocco/image/upload/v1536577516/05_ldkxgy.png  " Picture 7: Live Update on Xen. Source: [2] Patching with Xen Livepatch" %}
 
 
 ### AIX Live Update
@@ -243,7 +249,7 @@ AIX Live Update require additional partition of size at least equal to existing 
 Unfortuneatly the only place where I found information about live update feature, IBM tech blog, does not contain details about the implementation and how migration process makes sure that functions are suitable to be safely migrated.  
 What is interesting at AIX solution is that, due to the design of live update, the problem of consistency check could be eliminated in theory. One discussion in Linux community was also arguing about such solution instead of incremental patching [15].
 
-{% image fancybox center clear image8.png http://res.cloudinary.com/gotocco/image/upload/v1535564738/Screen_Shot_2018-08-29_at_18.40.27_e8imlm.png " Picture 8: Live Update on AIX. Source: [3] AIX Live-update" %}
+{% image fancybox center clear image8.png http://res.cloudinary.com/gotocco/image/upload/v1536587913/06_2_1_1_doaru3.png  " Picture 8: Live Update on AIX. Source: [3] AIX Live-update" %}
 
 
 ### Building own trivial livepatch on Linux
