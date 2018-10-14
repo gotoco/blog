@@ -14,7 +14,7 @@ coverMeta: out
 coverSize: partial
 comments: false
 ---
-This year I atended BSD EuroBSD conference in Buharest as a presenter. My talk summarized last year of reaserch and development of livepatching for the FreeBSD kernel. 
+This year I attended the EuroBSD conference in Bucharest as a presenter. During my talk, I summarized last year of research and development of Live-patching feature for the FreeBSD kernel. 
 
 <!-- more -->
 ### EuroBSD
@@ -65,6 +65,7 @@ Next Year EuroBSD will take place in the Lillehammer, Norway on September 19-22.
 
 EuroBSDcon Twitter: @EuroBSDcon
 Presentation Slides from EuroBSDCon: [talks-speakers](https://2018.eurobsdcon.org/talks-speakers/)
+Livepatching FreeBSD kernel: [presentation-slides](https://2018.eurobsdcon.org/static/slides/Livepatching%20FreeBSD%20kernel%20-%20Maciej%20Grochowski.pdf)
 
 
 
