@@ -16,8 +16,8 @@ comments: false
 toc: true
 ---
 ### Welcome on my personal blog.
-The reason for which I started to write this blog was just to systemize my knowledge.
-You will find here materials on such subjects as: Systems Architecture, Different Programming Paradigms, Low Level Programming, Networking, Storage, Security, Virtualization, Operating Systems as well lots of other topics that are in my head.
+The reason why I started to write a blog was mainly to systemize my knowledge, and improve writing skils
+You can find here materials mainly related to System Engineering: Computer Architecture, Low Level Programming, Networking, Storage, Security, Virtualization, Operating Systems as well lots of other random topics out of my head.
 
 <!-- more -->
 
@@ -34,15 +34,12 @@ An engineer is a professional practitioner of engineering, concerned with applyi
 In my opinion the best part of this definition is about using knowledge to develop solutions to particular technical problems.
 
 #### Bio
-I started my engineer career as an embedded software responsible for developing medical devices.
-Real-Time OS, small microcontrollers with a lot of peripherals, sometimes embedded Linux.
-I got also some opportunity from my University to develop some scientific code on NVIDIA CUDA.
-But as unfortunately, as often happens with scientific projects they can silently die.
-So I stuck with embedded systems for a while, until my curiosity pushed me to application development.
-Application development is one of these topics that some people love it and others hate it.
-To be frank I have learned a lot during the application development especially things related to design patterns or different programming paradigms. But after some time I realized that I don't want to do only apps for the rest of my life, and I started exploring other areas as a security, system programming.
-After some time I got an opportunity to start doing more system development so I quit my app job and merrily switched. I believe that was a point in my life that I realized that I am in the proper place.
-I got some brilliant opportunities to work on Networking Stack, Crypto Libraries, System Performance or File Systems, for which I am very thankful to my former employers.
+I started my engineering career as an embedded software responsible for developing medical devices. Using Real-Time OS, small microcontrollers with a lot of peripherals, sometimes embedded Linux. Doing everything from soldering and fixing broken wires to writing perfect UI (I always prefered to burn myself with the soldering iron over the creating UI, it is just much less painful for me).
+Sometime after I finally mastered the art of wire wraps, I got an opportunity from my university to join the scientific project. The project was about modelling hydrodynamics processes using code written in NVIDIA CUDA. That was an impressive experience as it required from me to invariably operate on 4D matrixes, which changed my spatial imagination forever. But as unfortunately, as often happens with scientific projects they can silently die. So I came back to embedded systems for a while, until my curiosity pushed me to application development.
+Application development is one of the certain subjects: some people love it, others hate it.
+To be accurate, I learned a lot during the application development. Things related to design patterns, different programming paradigms or server site architecture. However, after some time, I understood that I don’t want to do feature development for the rest of my life. I started exploring other areas as a security and system programming, cool stuff essentially.
+After some time, I was lucky enough to get an opportunity in system development. I quit my backend developer job and merrily switched. Something remarkable appeared after a few months. I believe that was a point in my life when I realized that I am in the proper place.
+Over the time I got some brilliant opportunities to work on Networking Stacks, Crypto Libraries, System Performance and File Systems, for which I am very thankful to my former employers.
 
 #### Interests
 The languages I'm familiar with: C, C++, Assembly (from AVR to x86), Python, Ruby, Java, Clojure, GO.. (I am still trying to learn some new ones)
@@ -58,7 +55,7 @@ Putting everything learned together
 
 So I simply treat my blog as a side project, where I am trying to put and order things that I learned together.
 
-If you are interested in collaboration or simply you would like to know the guy who is writing all of these *nonsenses* you can find my resume [here](http://res.cloudinary.com/gotocco/image/upload/v1529558247/cv_mgrochow_qo94r3.pdf).
+If you are interested in collaboration or simply you would like to know the guy who is writing all of these *nonsenses* you can find my resume [here](http://res.cloudinary.com/gotocco/image/upload/v1543875301/res_mgrochow_ricbje.pdf).
 ### About Blog Engine
 This blog uses the Hexo engine and Freemind theme. For quite some time I wanted to start blogging, but I really wanted to use something funnier than WordPress. Recently I had to write something in NodeJS and having done that, I found that javascript can be quite interesting (yes really!). So as not to finish with NodeJS, I decided to start something that can be called a project within a project. As I wanted to blog and also do something useful with NodeJS, the idea was to use a blog engine written in NodeJS and try to play with it.
 
