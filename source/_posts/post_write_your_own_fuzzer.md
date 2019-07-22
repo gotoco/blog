@@ -18,13 +18,12 @@ comments: false
 
 
 ### How Fuzzing works? The dummy Fuzzer.
-<img align="right" src="https://res.cloudinary.com/gotocco/image/upload/c_scale,w_500/v1562072354/krolik_iuavvr.jpg">
-
 The easy way to describe fuzzing is to compare it to the process of unit testing a program, but with different input. This input can be random, or it can be generated in some way that makes it unexpected form standard execution perspective.
 
 The simplest 'fuzzer' can be written in few lines of bash, by getting N bytes from `/dev/rand`, and putting them to the program as a parameter. 
 
 <!-- more -->
+<img align="right" src="https://res.cloudinary.com/gotocco/image/upload/c_scale,w_500/v1562072354/krolik_iuavvr.jpg">
 <!-- toc -->
 #### Coverage and Fuzzing
  What can be done to make fuzzing more effective? If we think about fuzzing as a process, where we place data into the input of the program (which is a black box), and we can only interact via input, not much more can be done.
