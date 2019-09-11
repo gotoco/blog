@@ -1,5 +1,5 @@
-title: Write yout own fuzzer for NetBSD kernel! Part 2: Fuzz Filesystem
-date: 2019-10-23 00:00:01
+title: Write yout own fuzzer for NetBSD kernel! Fuzzing Filesystem
+date: 2019-08-23 00:00:01
 categories:
 - Kernel
 - Fuzzing
