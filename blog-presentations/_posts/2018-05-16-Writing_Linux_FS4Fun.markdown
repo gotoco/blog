@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Writing Linux Filesystem for Fun"
+title:  "Writing Linux Filesystem 4Fun"
 date:   2018-05-16 00:00:01 -0700
-categories: Filesystem Linux
+category: presentation
 ---
 
 

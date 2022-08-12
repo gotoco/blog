@@ -23,6 +23,17 @@ baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://gotoco.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mathfriday
 github_username:  gotoco
+linkedin_username: maciej-g-94a03a54 
+#youtube_username: UCC5qCvP9mzonf0qDlMoG-5g
+
+# Fields that minima uses, but are not defaulted with the jekyll new command
+# Author is the default for posts, the Atom feed, and is used in the footer
+author: Maciej Grochowski
+
+# New fields not defaulted byu jekyll-new with the minima theme
+# Add copyright. A copyright symbol and year will be added automatically 
+# copyright: Company Name, Inc
+copyright: Maciej Grochowski
 
 # Build settings
 markdown: kramdown
