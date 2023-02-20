@@ -6,9 +6,19 @@ permalink: /about/
 
 ### Welcome on my personal blog.
 The main reason why I started to write a blog was to systemize my knowledge, and improve writing skils.
-You can find here materials mainly related to System Engineering: Computer Architecture, Low Level Programming, Networking, Storage, Security, Virtualization, Operating Systems as well lots of other random topics out of my head.
+You can find here materials mainly related to System Engineering: Computer Architecture, Low Level Programming, Operating Systems concepts such as: Networking, Storage, Security, Virtualization.
 
 <!-- more -->
+### Blog
+After reviewing some of my past work I realized that I have a lot of materials that can be easily divided into two areas: overview of some topic and deep technical dive in.
+These two categories are: tutorials and presentations. Thus I decided to use them as main filters for materials that you can find on this blog (and as 2 categories on the left).
+
+#### Presentations
+Here I mainly publish things that I have presented in the past during meetups or conferences so it can be easily found. Sometimes I put additional descriptions or explanation if needed. 
+
+#### Tutorials
+Tutorials contains deep dive down into some specific topic such framework tool or code.
+My goal usually is to provide usefull examples as well as understanding of the topic so after reading tutorial reader can have solid base for doing own independent work in such area. 
 
 ### About me
 

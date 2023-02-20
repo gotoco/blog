@@ -12,13 +12,44 @@ PCI Express became standard for device manufacturers, and although it broad usag
 Usually when device causing problems it can dissapear from the system or misfunction and sent a lot of odd errors to kernel logs. Most common errors would be reported via AER's.
 In this post we won't go into the protocol but we will focus on how to make sense of error messages.
 
-## PCI Express Error reporting
+## PCI Express Advanced Error Reporting
+PCI Express Advanced Error Reporting (AER) is 
+
 
 ## Using TLP-Tool to parse TLPs
 
-### Setting up tlp tool
+### Setting up tlp tool and other tools.
+For examples showed below we will need `lspci` utility which can be installed as part of packet `pciutils`. To install `pciutils` on Linux we need to run packet manager such: `apt` for Ubuntu, `yum` for CentOs or `dnf` for Fedora and request the packet.
+
+
+
+## Where TLP Header can be found?
+In this tutorial we will focus on two most common places where PCIe error can be posted: system log and device logs.
+
+### Kernel logs
+First place which we should check in case of any issues with devices are kernel logs.
+Logs can be accessed by `dmesg` command 
+
 
 ### Header Log
+In this example we will have NVMe device with BFD number 01:00.0. 
+We can 
+
+```
+lspci -s 01:00.0 -vv
+01:00.0 Non-Volatile memory controller: Phison Electronics Corporation E16 PCIe4 NVMe Controller (rev 01) (prog-if 02 [NVM Express])
+...
+        Capabilities: [1e0 v1] Data Link Feature <?>
+        Capabilities: [200 v2] Advanced Error Reporting
+                UESta:  DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+                UEMsk:  DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+                UESvrt: DLP+ SDES- TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP+ ECRC- UnsupReq- ACSViol-
+                CESta:  RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr-
+                CEMsk:  RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
+                AERCap: First Error Pointer: 00, ECRCGenCap- ECRCGenEn- ECRCChkCap+ ECRCChkEn-
+                        MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
+                HeaderLog: 04000001 0000220f 01070000 9eece789
+```
 
 ### AER Report
 

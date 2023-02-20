@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Write yout own fuzzer for NetBSD kernel!"
+title:  "Write yout own fuzzer for NetBSD kernel! Fuzzing Filesystem"
 date:   2018-05-28 00:00:01 -0700
 categories: Fuzzing Kernel 
+category: tutorial
 ---
 
 ### How Fuzzing works? The dummy Fuzzer.
