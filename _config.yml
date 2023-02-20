@@ -16,10 +16,9 @@
 title: VMExit [Leaving Sandbox Zone...]
 email: maciej[dot]grochowski[at]pm[dot]me
 description: >- # this means to ignore newlines until "baseurl:"
-  Just another Blog about Low Level Programming: Operating Systems, Kernels,
-  Platform Security, Hypervisor, UEFI, Binary Analysis, Algorithms and other boring stuff...
-  (Linux, BSD, FreeBSD, C, Rust, Reverse Engineering, x86, AMD64, ARM)
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+  Just another Blog about Low Level Programming: Operating Systems, Security
+  Platform Firmwares, Binary Analysis, Algorithms and other boring stuff...
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://gotoco.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mathfriday
 github_username:  gotoco
@@ -41,6 +40,7 @@ markdown: kramdown
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
